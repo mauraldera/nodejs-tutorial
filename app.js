@@ -5,12 +5,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
+var validator = require('express-validator');
 
-var indexRouter = require('./routes/index');
+var routes = require('./routes/index');
+var userRoutes = require('./routes/user');
+
 
 var app = express();
 
 mongoose.connect('mongodb://localhost:27017/shopping');
+require('./config/passport');
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
@@ -21,8 +28,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
+app.use(validator());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+// app.use('/', indexRouter);
 
-app.use('/', indexRouter);
+app.use(function(req, res, next) {
+  res.locals.login = req.isAuthenticated();
+  next();
+});
+
+app.use('/user', userRoutes);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
