@@ -1,0 +1,52 @@
+
+<div class="container">
+    <h3>
+        <a class="addProduct btn btn-primary" href="/list">Product Table</a>
+    </h3>
+    <h1>Edit Product</h1>
+    <form action="/updateProduct/{{products._id}}" method="post">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td>Product Name</td>
+                    <td>
+                        <input size="50" type="text" name="title" value="{{products.title}}" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Image Path</td>
+                    <td>
+                        <input size="100" type="text" name="imagePath" value="{{products.imagePath}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image Path</td>
+                    <td>
+                        <input type="file" name="imagePath"/>
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <td>Description</td>
+                    <td>
+                        <textarea rows="4" cols="100" name="description">{{products.description}}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        <input type="number" name="price" value="{{products.price}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input colspan="2" type="submit" value="Update" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

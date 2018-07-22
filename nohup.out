@@ -1,0 +1,38 @@
+2018-07-07T21:37:12.469+0700 I CONTROL  [initandlisten] MongoDB starting : pid=3541 port=27017 dbpath=/data/db 64-bit host=Faisals-MacBook-Air.local
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] db version v3.6.5
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] git version: a20ecd3e3a174162052ff99913bc2ca9a839d618
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2o  27 Mar 2018
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] allocator: system
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] modules: none
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] build environment:
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten]     distarch: x86_64
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten]     target_arch: x86_64
+2018-07-07T21:37:12.472+0700 I CONTROL  [initandlisten] options: {}
+2018-07-07T21:37:12.478+0700 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2018-07-07T21:37:12.479+0700 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1536M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2018-07-07T21:37:13.766+0700 I STORAGE  [initandlisten] WiredTiger message [1530974233:766658][3541:0x7fffaa8f0340], txn-recover: Main recovery loop: starting at 7/768
+2018-07-07T21:37:13.907+0700 I STORAGE  [initandlisten] WiredTiger message [1530974233:907341][3541:0x7fffaa8f0340], txn-recover: Recovering log 7 through 8
+2018-07-07T21:37:14.019+0700 I STORAGE  [initandlisten] WiredTiger message [1530974234:19001][3541:0x7fffaa8f0340], txn-recover: Recovering log 8 through 8
+2018-07-07T21:37:14.110+0700 I STORAGE  [initandlisten] WiredTiger message [1530974234:110848][3541:0x7fffaa8f0340], txn-recover: Set global recovery timestamp: 0
+2018-07-07T21:37:14.385+0700 I CONTROL  [initandlisten] 
+2018-07-07T21:37:14.385+0700 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2018-07-07T21:37:14.385+0700 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2018-07-07T21:37:14.385+0700 I CONTROL  [initandlisten] 
+2018-07-07T21:37:14.385+0700 I CONTROL  [initandlisten] ** WARNING: This server is bound to localhost.
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] **          Remote systems will be unable to connect to this server. 
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] **          Start the server with --bind_ip <address> to specify which IP 
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] **          addresses it should serve responses from, or with --bind_ip_all to
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] **          bind to all interfaces. If this behavior is desired, start the
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] **          server with --bind_ip 127.0.0.1 to disable this warning.
+2018-07-07T21:37:14.386+0700 I CONTROL  [initandlisten] 
+2018-07-07T21:37:14.472+0700 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2018-07-07T21:37:14.474+0700 I NETWORK  [initandlisten] waiting for connections on port 27017
+2018-07-07T21:37:18.869+0700 I NETWORK  [listener] connection accepted from 127.0.0.1:61037 #1 (1 connection now open)
+2018-07-07T21:37:18.882+0700 I NETWORK  [conn1] received client metadata from 127.0.0.1:61037 conn1: { driver: { name: "nodejs", version: "3.0.10" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.4.0, LE, mongodb-core: 3.0.9" }
+2018-07-08T10:03:58.282+0700 I NETWORK  [conn1] end connection 127.0.0.1:61037 (0 connections now open)
+2018-07-08T11:59:00.780+0700 I NETWORK  [listener] connection accepted from 127.0.0.1:61502 #2 (1 connection now open)
+2018-07-08T11:59:00.786+0700 I NETWORK  [conn2] received client metadata from 127.0.0.1:61502 conn2: { driver: { name: "nodejs", version: "3.0.8" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.4.0, LE, mongodb-core: 3.0.8" }
+2018-07-08T13:35:31.387+0700 I NETWORK  [conn2] end connection 127.0.0.1:61502 (0 connections now open)
+2018-07-08T13:35:58.593+0700 I NETWORK  [listener] connection accepted from 127.0.0.1:62400 #3 (1 connection now open)
+2018-07-08T13:35:58.602+0700 I NETWORK  [conn3] received client metadata from 127.0.0.1:62400 conn3: { driver: { name: "nodejs", version: "3.0.10" }, os: { type: "Darwin", name: "darwin", architecture: "x64", version: "17.4.0" }, platform: "Node.js v8.4.0, LE, mongodb-core: 3.0.9" }
+2018-07-08T13:36:19.848+0700 I NETWORK  [conn3] end connection 127.0.0.1:62400 (0 connections now open)

@@ -1,0 +1,29 @@
+<a class="addProduct btn btn-success" href="/">View All Product</a>
+<a class="addProduct btn btn-primary" href="/addNewProduct">Add New Product</a>
+
+<table>
+    <tr class="table-success">
+        <th width="70px"> No</th>
+        <th>Product Title</th>
+        <th>Price</th>
+        <th>Description</th>
+         <th>Likes</th>
+        <th width="100">Action</th>
+    </tr>
+    {{# each products }}
+    <tr>
+        {{!-- <td>{{@index}}</td> --}}
+        <td>{{ this._id }}</td>
+        <td>{{ this.title }}</td>
+        <td>{{ this.price }}</td>
+        <td>{{ this.description }}</td>
+        <td>{{ this.like }}</td>
+        <td>
+            <a class="btn btn-success btnEdit" href="/edit/{{ this._id }}">EDIT</a>
+            <form action="/delete/{{ this._id }}" method="post">
+                <button class="btn btn-danger" type="submit">DELETE</button>
+            </form>
+        </td>
+    </tr>
+    {{/each}}
+

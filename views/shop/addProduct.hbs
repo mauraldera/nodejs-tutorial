@@ -1,0 +1,51 @@
+<div class="container">
+    <h3>
+        <a class="addProduct btn btn-primary" href="/list">Product Table</a>
+    </h3>
+    <h1>Create New Product</h1>
+    <form action="/addNewProduct" enctype="multipart/form-data" method="POST">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Product Name</td>
+                    <td>
+                        <input type="text" name="title" />
+                    </td>
+                </tr>
+
+                {{!-- <tr>
+                    <td>Image Path</td>
+                    <td>
+                        <input type="text" name="imagePath" />
+                    </td>
+                </tr> --}}
+
+                <tr>
+                    <td>Description</td>
+                    <td>
+                        <textarea name="description"></textarea>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>Image Path</td>
+                    <td>
+                        <input type="file" name="imagePath"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        <input type="number" name="price" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input colspan="2" type="submit" value="Save" />
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
