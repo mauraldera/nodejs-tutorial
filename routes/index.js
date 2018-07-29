@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var formidable = require('formidable');
+var Cart = require ('../models/cart');
 
 
 /* GET home page. */
@@ -16,9 +17,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/addNewProduct', function (req, res) {
-    res.render('shop/addProduct', { title: 'Page Add' });
-});
+
 
 router.post('/addNewProduct', function (req, res) {
     var form = new formidable.IncomingForm();
@@ -161,5 +160,51 @@ router.get('/like/:id', function(req,res) {
         res.redirect("/");
     });
 });
+
+router.get('/add-to-cart/:id', function (req, res, next) {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    Product.findById(productId, function (err, product) {
+        if(err) {
+            return res.redirect('/');
+        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        console.log();
+        res.redirect('/');
+    });
+});
+
+router.get('/shopping-cart', function (req, res, next) {
+    if(!req.session.cart) {
+        return res.render('/shop/shopping-cart', {products:null});
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+});
+
+router.get('/addNewProduct', function (req, res) {
+    res.render('shop/addProduct', { title: 'Page Add' });
+});
+
+router.get('/reduce/:id', function (req, res, next) {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    cart.reduceByOne(productId);
+    req.session.cart = cart;
+    res.redirect('/shopping-cart');
+});
+
+router.get('/remove/:id', function (req,res,next) {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    cart.removeItem(productId);
+    req.session.cart = cart;
+    res.redirect('/shopping-cart');
+});
+
 
 module.exports = router;
